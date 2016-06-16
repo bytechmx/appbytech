@@ -1,0 +1,1620 @@
+I, [2016-04-06T10:10:30.701578 #6592]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 10:10:30 -0500
+I, [2016-04-06T10:10:30.716579 #6592]  INFO -- : Processing by VoluntariosController#index as HTML
+I, [2016-04-06T10:10:30.759581 #6592]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (19.0ms)
+I, [2016-04-06T10:10:30.759581 #6592]  INFO -- : Completed 500 Internal Server Error in 43ms (ActiveRecord: 1.0ms)
+F, [2016-04-06T10:10:30.762581 #6592] FATAL -- : 
+ActionView::Template::Error (Could not find table 'voluntarios'):
+    11: 
+    12: <div class="form-group">
+    13:   <%= f.label :contacto_cont, "Tipo de Contacto" %>       
+    14:   <%= f.select :contacto, [["Promotores voluntarios", "Promotores voluntarios"], ["Promotores capacitantes", "Promotores capacitantes"]], { :prompt => "Elegir" }, { class: "form-control" } %>
+    15:   </div>
+    16: </div>
+    17: 
+  app/views/voluntarios/index.html.erb:14:in `block in _app_views_voluntarios_index_html_erb__618058741_33018900'
+  app/views/voluntarios/index.html.erb:4:in `_app_views_voluntarios_index_html_erb__618058741_33018900'
+
+
+I, [2016-04-06T10:14:07.901001 #6488]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 10:14:07 -0500
+I, [2016-04-06T10:14:07.914002 #6488]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T10:14:07.930002 #6488]  INFO -- : Completed 500 Internal Server Error in 14ms (ActiveRecord: 1.0ms)
+F, [2016-04-06T10:14:07.931002 #6488] FATAL -- : 
+ActiveRecord::StatementInvalid (Could not find table 'voluntarios'):
+  app/controllers/voluntarios_controller.rb:20:in `new'
+
+
+D, [2016-04-06T10:15:44.271513 #7016] DEBUG -- :   [1m[36m (24.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+D, [2016-04-06T10:15:44.272513 #7016] DEBUG -- :   [1m[35m (1.0ms)[0m  select sqlite_version(*)
+D, [2016-04-06T10:15:44.279513 #7016] DEBUG -- :   [1m[36m (7.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+D, [2016-04-06T10:15:44.280513 #7016] DEBUG -- :   [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+I, [2016-04-06T10:15:44.290514 #7016]  INFO -- : Migrating to CreateRegisters (20160314233015)
+D, [2016-04-06T10:15:44.292514 #7016] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2016-04-06T10:15:44.295514 #7016] DEBUG -- :   [1m[35m (1.0ms)[0m  CREATE TABLE "registers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "numero" integer, "nombregrupo" varchar, "estado" varchar, "municipio" varchar, "localidad" varchar, "colonia" varchar, "status" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+D, [2016-04-06T10:15:44.358518 #7016] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160314233015"]]
+D, [2016-04-06T10:15:44.363518 #7016] DEBUG -- :   [1m[35m (4.0ms)[0m  commit transaction
+I, [2016-04-06T10:15:44.363518 #7016]  INFO -- : Migrating to CreateRegistros (20160314235035)
+D, [2016-04-06T10:15:44.364518 #7016] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2016-04-06T10:15:44.367518 #7016] DEBUG -- :   [1m[35m (1.0ms)[0m  CREATE TABLE "registros" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "numero" integer, "nombregrupo" varchar, "estado" varchar, "municipio" varchar, "localidad" varchar, "colonia" varchar, "disponible" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+D, [2016-04-06T10:15:44.369518 #7016] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160314235035"]]
+D, [2016-04-06T10:15:44.373519 #7016] DEBUG -- :   [1m[35m (4.0ms)[0m  commit transaction
+I, [2016-04-06T10:15:44.373519 #7016]  INFO -- : Migrating to Estados (20160317153550)
+D, [2016-04-06T10:15:44.375519 #7016] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2016-04-06T10:15:44.377519 #7016] DEBUG -- :   [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160317153550"]]
+D, [2016-04-06T10:15:44.381519 #7016] DEBUG -- :   [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+I, [2016-04-06T10:15:44.381519 #7016]  INFO -- : Migrating to CreateCountries (20160317160258)
+D, [2016-04-06T10:15:44.382519 #7016] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2016-04-06T10:15:44.384519 #7016] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mCREATE TABLE "countries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+D, [2016-04-06T10:15:44.386519 #7016] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160317160258"]]
+D, [2016-04-06T10:15:44.393520 #7016] DEBUG -- :   [1m[36m (6.0ms)[0m  [1mcommit transaction[0m
+I, [2016-04-06T10:15:44.393520 #7016]  INFO -- : Migrating to CreateVoluntarios (20160317204909)
+D, [2016-04-06T10:15:44.394520 #7016] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2016-04-06T10:15:44.397520 #7016] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mCREATE TABLE "voluntarios" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fecha_solicitud" date, "fecha_autorizacion" date, "numero_registro" integer, "nombre" varchar, "apellido" varchar, "estado" varchar, "municipio" varchar, "localidad" varchar, "colonia" varchar, "correo_electronico" varchar, "telefono" integer, "sub_grupos" varchar, "obra_publica" varchar, "status" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+D, [2016-04-06T10:15:44.398520 #7016] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160317204909"]]
+D, [2016-04-06T10:15:44.404520 #7016] DEBUG -- :   [1m[36m (5.0ms)[0m  [1mcommit transaction[0m
+I, [2016-04-06T10:15:44.404520 #7016]  INFO -- : Migrating to AddContactoToVoluntarios (20160322224921)
+D, [2016-04-06T10:15:44.405521 #7016] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2016-04-06T10:15:44.408521 #7016] DEBUG -- :   [1m[36m (2.0ms)[0m  [1mALTER TABLE "voluntarios" ADD "contacto" varchar[0m
+D, [2016-04-06T10:15:44.410521 #7016] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160322224921"]]
+D, [2016-04-06T10:15:44.414521 #7016] DEBUG -- :   [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+I, [2016-04-06T10:15:44.414521 #7016]  INFO -- : Migrating to AddAttachmentToVoluntarios (20160328174046)
+D, [2016-04-06T10:15:44.415521 #7016] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2016-04-06T10:15:44.417521 #7016] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mALTER TABLE "voluntarios" ADD "attachment" varchar[0m
+D, [2016-04-06T10:15:44.419521 #7016] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160328174046"]]
+D, [2016-04-06T10:15:44.424522 #7016] DEBUG -- :   [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+I, [2016-04-06T10:15:44.424522 #7016]  INFO -- : Migrating to AddComentariosToVoluntarios (20160328174520)
+D, [2016-04-06T10:15:44.425522 #7016] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2016-04-06T10:15:44.428522 #7016] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mALTER TABLE "voluntarios" ADD "comentarios" text[0m
+D, [2016-04-06T10:15:44.429522 #7016] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160328174520"]]
+D, [2016-04-06T10:15:44.435522 #7016] DEBUG -- :   [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+I, [2016-04-06T10:16:19.854548 #5920]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-06 10:16:19 -0500
+I, [2016-04-06T10:16:19.867549 #5920]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T10:16:19.955554 #5920] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T10:16:19.964554 #5920] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T10:16:19.964554 #5920]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (73.0ms)
+I, [2016-04-06T10:16:19.967555 #5920]  INFO -- : Completed 200 OK in 100ms (Views: 83.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T10:16:28.900065 #5920]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 10:16:28 -0500
+I, [2016-04-06T10:16:28.902066 #5920]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T10:16:28.973070 #5920]  INFO -- :   Rendered voluntarios/_form.html.erb (20.0ms)
+I, [2016-04-06T10:16:28.973070 #5920]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (48.0ms)
+I, [2016-04-06T10:16:28.975070 #5920]  INFO -- : Completed 200 OK in 72ms (Views: 53.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T10:16:39.089648 #5920]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 10:16:39 -0500
+I, [2016-04-06T10:16:39.091648 #5920]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T10:16:39.110649 #5920]  INFO -- :   Rendered voluntarios/_form.html.erb (18.0ms)
+I, [2016-04-06T10:16:39.111650 #5920]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (19.0ms)
+I, [2016-04-06T10:16:39.112650 #5920]  INFO -- : Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T10:23:56.030640 #6992]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-06 10:23:56 -0500
+I, [2016-04-06T10:23:56.044641 #6992]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T10:23:56.133646 #6992] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T10:23:56.142646 #6992] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T10:23:56.142646 #6992]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (74.0ms)
+I, [2016-04-06T10:23:56.145646 #6992]  INFO -- : Completed 200 OK in 99ms (Views: 81.0ms | ActiveRecord: 3.0ms)
+I, [2016-04-06T10:24:22.433150 #6992]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 10:24:22 -0500
+I, [2016-04-06T10:24:22.435150 #6992]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T10:24:22.477153 #6992]  INFO -- :   Rendered voluntarios/_form.html.erb (19.0ms)
+I, [2016-04-06T10:24:22.477153 #6992]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (22.0ms)
+I, [2016-04-06T10:24:22.478153 #6992]  INFO -- : Completed 200 OK in 43ms (Views: 25.0ms | ActiveRecord: 0.0ms)
+W, [2016-04-06T10:33:45.656365 #6884]  WARN -- : DEPRECATION WARNING on line 12 of C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/bootstrap-sass-3.3.6/assets/stylesheets/_bootstrap-mincer.scss: #{} interpolation near operators will be simplified
+in a future version of Sass. To preserve the current behavior, use quotes:
+
+  unquote("\"<%- asset_path(\"#{$path}\".replace(/[#?].*$/, '')) + \"#{$path}\".replace(/(^[^#?]*)([#?]?.*$)/, '$2') %>\"")
+
+You can use the sass-convert command to automatically fix most cases.
+
+
+W, [2016-04-06T10:33:45.657365 #6884]  WARN -- : DEPRECATION WARNING on line 16 of C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/bootstrap-sass-3.3.6/assets/stylesheets/_bootstrap-mincer.scss: #{} interpolation near operators will be simplified
+in a future version of Sass. To preserve the current behavior, use quotes:
+
+  unquote('"<%- asset_path("#{$file}") %>"')
+
+You can use the sass-convert command to automatically fix most cases.
+
+
+I, [2016-04-06T10:35:08.100080 #2652]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-06 10:35:08 -0500
+I, [2016-04-06T10:35:08.122081 #2652]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T10:35:08.201086 #2652] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T10:35:08.210086 #2652] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T10:35:08.210086 #2652]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (64.0ms)
+I, [2016-04-06T10:35:08.213087 #2652]  INFO -- : Completed 200 OK in 90ms (Views: 72.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T10:35:57.515906 #2652]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 10:35:57 -0500
+I, [2016-04-06T10:35:57.517907 #2652]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T10:35:57.560909 #2652]  INFO -- :   Rendered voluntarios/_form.html.erb (20.0ms)
+I, [2016-04-06T10:35:57.561909 #2652]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (23.0ms)
+I, [2016-04-06T10:35:57.562909 #2652]  INFO -- : Completed 200 OK in 45ms (Views: 27.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T10:36:05.258349 #2652]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 10:36:05 -0500
+I, [2016-04-06T10:36:05.259349 #2652]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T10:36:05.278350 #2652]  INFO -- :   Rendered voluntarios/_form.html.erb (17.0ms)
+I, [2016-04-06T10:36:05.279351 #2652]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T10:36:05.280351 #2652]  INFO -- : Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T10:44:19.264605 #7004]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 10:44:19 -0500
+I, [2016-04-06T10:44:19.287606 #7004]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T10:44:19.365611 #7004] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T10:44:19.374611 #7004] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T10:44:19.374611 #7004]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (64.0ms)
+I, [2016-04-06T10:44:19.377611 #7004]  INFO -- : Completed 200 OK in 89ms (Views: 71.0ms | ActiveRecord: 3.0ms)
+I, [2016-04-06T10:46:06.683749 #7004]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 10:46:06 -0500
+I, [2016-04-06T10:46:06.684749 #7004]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T10:46:06.728751 #7004]  INFO -- :   Rendered voluntarios/_form.html.erb (20.0ms)
+I, [2016-04-06T10:46:06.728751 #7004]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (22.0ms)
+I, [2016-04-06T10:46:06.729752 #7004]  INFO -- : Completed 200 OK in 45ms (Views: 26.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T10:57:11.965801 #6544]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 10:57:11 -0500
+I, [2016-04-06T10:57:11.988802 #6544]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T10:57:12.066807 #6544] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T10:57:12.075807 #6544] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T10:57:12.076807 #6544]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (64.0ms)
+I, [2016-04-06T10:57:12.078807 #6544]  INFO -- : Completed 200 OK in 90ms (Views: 75.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T10:57:43.938630 #6544]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 10:57:43 -0500
+I, [2016-04-06T10:57:43.940630 #6544]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T10:57:43.984632 #6544]  INFO -- :   Rendered voluntarios/_form.html.erb (20.0ms)
+I, [2016-04-06T10:57:43.985632 #6544]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (24.0ms)
+I, [2016-04-06T10:57:43.987632 #6544]  INFO -- : Completed 200 OK in 46ms (Views: 28.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T11:47:14.900559 #5748]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 11:47:14 -0500
+I, [2016-04-06T11:47:14.922560 #5748]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T11:47:15.001565 #5748] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T11:47:15.010565 #5748] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T11:47:15.010565 #5748]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (64.0ms)
+I, [2016-04-06T11:47:15.013565 #5748]  INFO -- : Completed 200 OK in 89ms (Views: 72.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T11:47:27.314269 #5748]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 11:47:27 -0500
+I, [2016-04-06T11:47:27.315269 #5748]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T11:47:27.360272 #5748]  INFO -- :   Rendered voluntarios/_form.html.erb (21.0ms)
+I, [2016-04-06T11:47:27.360272 #5748]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (24.0ms)
+I, [2016-04-06T11:47:27.361272 #5748]  INFO -- : Completed 200 OK in 46ms (Views: 27.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T11:47:36.655803 #5748]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 11:47:36 -0500
+I, [2016-04-06T11:47:36.656803 #5748]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T11:47:36.675804 #5748]  INFO -- :   Rendered voluntarios/_form.html.erb (17.0ms)
+I, [2016-04-06T11:47:36.676804 #5748]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T11:47:36.677804 #5748]  INFO -- : Completed 200 OK in 20ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T11:55:49.661001 #5496]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-06 11:55:49 -0500
+I, [2016-04-06T11:55:49.684003 #5496]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T11:55:49.762007 #5496] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T11:55:49.771008 #5496] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T11:55:49.772008 #5496]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (63.0ms)
+I, [2016-04-06T11:55:49.774008 #5496]  INFO -- : Completed 200 OK in 90ms (Views: 72.0ms | ActiveRecord: 3.0ms)
+I, [2016-04-06T11:56:03.238778 #5496]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 11:56:03 -0500
+I, [2016-04-06T11:56:03.239778 #5496]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T11:56:03.283781 #5496]  INFO -- :   Rendered voluntarios/_form.html.erb (20.0ms)
+I, [2016-04-06T11:56:03.283781 #5496]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (23.0ms)
+I, [2016-04-06T11:56:03.285781 #5496]  INFO -- : Completed 200 OK in 45ms (Views: 27.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T11:56:26.750123 #5496]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 11:56:26 -0500
+I, [2016-04-06T11:56:26.752123 #5496]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T11:56:26.763124 #5496] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T11:56:26.769124 #5496] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T11:56:26.770124 #5496]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T11:56:26.771124 #5496]  INFO -- : Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T11:56:31.595400 #5496]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 11:56:31 -0500
+I, [2016-04-06T11:56:31.596400 #5496]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T11:56:31.607401 #5496] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T11:56:31.614401 #5496] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T11:56:31.614401 #5496]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T11:56:31.615401 #5496]  INFO -- : Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T11:56:31.686405 #5496]  INFO -- : Started GET "/assets/application-05e3fadca73b6eb32943d6509f9ac09e2dccf8d8a83b651804b7725783ccbdea.js" for 127.0.0.1 at 2016-04-06 11:56:31 -0500
+F, [2016-04-06T11:56:32.184434 #5496] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-05e3fadca73b6eb32943d6509f9ac09e2dccf8d8a83b651804b7725783ccbdea.js"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2016-04-06T11:56:32.222436 #5496]  INFO -- : Started GET "/assets/application-e2e7d60b44f83718e74afb3faff5ee7bf9b31b94e61e2c1e7555fb709e8091f4.css" for 127.0.0.1 at 2016-04-06 11:56:32 -0500
+F, [2016-04-06T11:56:32.387445 #5496] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-e2e7d60b44f83718e74afb3faff5ee7bf9b31b94e61e2c1e7555fb709e8091f4.css"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2016-04-06T11:56:32.389445 #5496]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 11:56:32 -0500
+I, [2016-04-06T11:56:32.390445 #5496]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T11:56:32.401446 #5496] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T11:56:32.407446 #5496] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T11:56:32.407446 #5496]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (15.0ms)
+I, [2016-04-06T11:56:32.408446 #5496]  INFO -- : Completed 200 OK in 18ms (Views: 15.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T11:56:32.410447 #5496]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 11:56:32 -0500
+I, [2016-04-06T11:56:32.412447 #5496]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T11:56:32.422447 #5496] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T11:56:32.429448 #5496] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T11:56:32.429448 #5496]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T11:56:32.430448 #5496]  INFO -- : Completed 200 OK in 18ms (Views: 16.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T11:56:32.432448 #5496]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 11:56:32 -0500
+I, [2016-04-06T11:56:32.433448 #5496]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T11:56:32.444449 #5496] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T11:56:32.450449 #5496] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T11:56:32.450449 #5496]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (15.0ms)
+I, [2016-04-06T11:56:32.452449 #5496]  INFO -- : Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T11:56:32.524453 #5496]  INFO -- : Started GET "/assets/application-05e3fadca73b6eb32943d6509f9ac09e2dccf8d8a83b651804b7725783ccbdea.js" for 127.0.0.1 at 2016-04-06 11:56:32 -0500
+F, [2016-04-06T11:56:32.526453 #5496] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-05e3fadca73b6eb32943d6509f9ac09e2dccf8d8a83b651804b7725783ccbdea.js"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2016-04-06T11:56:32.530453 #5496]  INFO -- : Started GET "/assets/application-e2e7d60b44f83718e74afb3faff5ee7bf9b31b94e61e2c1e7555fb709e8091f4.css" for 127.0.0.1 at 2016-04-06 11:56:32 -0500
+F, [2016-04-06T11:56:32.532454 #5496] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-e2e7d60b44f83718e74afb3faff5ee7bf9b31b94e61e2c1e7555fb709e8091f4.css"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2016-04-06T11:56:32.635459 #5496]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 11:56:32 -0500
+I, [2016-04-06T11:56:32.636460 #5496]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T11:56:32.646460 #5496] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T11:56:32.652460 #5496] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T11:56:32.652460 #5496]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (15.0ms)
+I, [2016-04-06T11:56:32.654461 #5496]  INFO -- : Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T11:56:32.917476 #5496]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 11:56:32 -0500
+I, [2016-04-06T11:56:32.918476 #5496]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T11:56:32.929476 #5496] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T11:56:32.935477 #5496] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T11:56:32.936477 #5496]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T11:56:32.937477 #5496]  INFO -- : Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T11:56:33.231494 #5496]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 11:56:33 -0500
+I, [2016-04-06T11:56:33.232494 #5496]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T11:56:33.242494 #5496] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T11:56:33.248495 #5496] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T11:56:33.248495 #5496]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (15.0ms)
+I, [2016-04-06T11:56:33.250495 #5496]  INFO -- : Completed 200 OK in 18ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T11:56:33.293497 #5496]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 11:56:33 -0500
+I, [2016-04-06T11:56:33.294497 #5496]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T11:56:33.326499 #5496] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T11:56:33.334499 #5496] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T11:56:33.337500 #5496]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (39.0ms)
+I, [2016-04-06T11:56:33.339500 #5496]  INFO -- : Completed 200 OK in 45ms (Views: 41.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T11:56:33.495509 #5496]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 11:56:33 -0500
+I, [2016-04-06T11:56:33.497509 #5496]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T11:56:33.514510 #5496] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T11:56:33.520510 #5496] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T11:56:33.520510 #5496]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (21.0ms)
+I, [2016-04-06T11:56:33.522510 #5496]  INFO -- : Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T11:56:33.775525 #5496]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 11:56:33 -0500
+I, [2016-04-06T11:56:33.776525 #5496]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T11:56:33.787525 #5496] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T11:56:33.793526 #5496] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T11:56:33.793526 #5496]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (15.0ms)
+I, [2016-04-06T11:56:33.794526 #5496]  INFO -- : Completed 200 OK in 18ms (Views: 15.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T11:56:34.058541 #5496]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 11:56:34 -0500
+I, [2016-04-06T11:56:34.059541 #5496]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T11:56:34.070542 #5496] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T11:56:34.076542 #5496] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T11:56:34.076542 #5496]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T11:56:34.078542 #5496]  INFO -- : Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T11:56:34.271553 #5496]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 11:56:34 -0500
+I, [2016-04-06T11:56:34.272553 #5496]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T11:56:34.284554 #5496] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T11:56:34.290554 #5496] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T11:56:34.291554 #5496]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T11:56:34.292554 #5496]  INFO -- : Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T11:56:34.319556 #5496]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 11:56:34 -0500
+I, [2016-04-06T11:56:34.319556 #5496]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T11:56:34.331556 #5496] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T11:56:34.338557 #5496] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T11:56:34.338557 #5496]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T11:56:34.340557 #5496]  INFO -- : Completed 200 OK in 19ms (Views: 16.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T11:56:34.422562 #5496]  INFO -- : Started GET "/assets/application-05e3fadca73b6eb32943d6509f9ac09e2dccf8d8a83b651804b7725783ccbdea.js" for 127.0.0.1 at 2016-04-06 11:56:34 -0500
+F, [2016-04-06T11:56:34.424562 #5496] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-05e3fadca73b6eb32943d6509f9ac09e2dccf8d8a83b651804b7725783ccbdea.js"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2016-04-06T11:56:34.428562 #5496]  INFO -- : Started GET "/assets/application-e2e7d60b44f83718e74afb3faff5ee7bf9b31b94e61e2c1e7555fb709e8091f4.css" for 127.0.0.1 at 2016-04-06 11:56:34 -0500
+F, [2016-04-06T11:56:34.430562 #5496] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-e2e7d60b44f83718e74afb3faff5ee7bf9b31b94e61e2c1e7555fb709e8091f4.css"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2016-04-06T11:56:40.534911 #5496]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 11:56:40 -0500
+I, [2016-04-06T11:56:40.535911 #5496]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T11:56:40.547912 #5496] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T11:56:40.553912 #5496] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T11:56:40.553912 #5496]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T11:56:40.555913 #5496]  INFO -- : Completed 200 OK in 20ms (Views: 16.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T11:56:40.638917 #5496]  INFO -- : Started GET "/assets/application-e2e7d60b44f83718e74afb3faff5ee7bf9b31b94e61e2c1e7555fb709e8091f4.css" for 127.0.0.1 at 2016-04-06 11:56:40 -0500
+F, [2016-04-06T11:56:40.640917 #5496] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-e2e7d60b44f83718e74afb3faff5ee7bf9b31b94e61e2c1e7555fb709e8091f4.css"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2016-04-06T11:56:40.644918 #5496]  INFO -- : Started GET "/assets/application-05e3fadca73b6eb32943d6509f9ac09e2dccf8d8a83b651804b7725783ccbdea.js" for 127.0.0.1 at 2016-04-06 11:56:40 -0500
+F, [2016-04-06T11:56:40.646918 #5496] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-05e3fadca73b6eb32943d6509f9ac09e2dccf8d8a83b651804b7725783ccbdea.js"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2016-04-06T11:56:53.039627 #5496]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 11:56:53 -0500
+I, [2016-04-06T11:56:53.040627 #5496]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T11:56:53.060628 #5496]  INFO -- :   Rendered voluntarios/_form.html.erb (18.0ms)
+I, [2016-04-06T11:56:53.061628 #5496]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (19.0ms)
+I, [2016-04-06T11:56:53.062628 #5496]  INFO -- : Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T11:56:53.149633 #5496]  INFO -- : Started GET "/assets/application-05e3fadca73b6eb32943d6509f9ac09e2dccf8d8a83b651804b7725783ccbdea.js" for 127.0.0.1 at 2016-04-06 11:56:53 -0500
+F, [2016-04-06T11:56:53.151633 #5496] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-05e3fadca73b6eb32943d6509f9ac09e2dccf8d8a83b651804b7725783ccbdea.js"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2016-04-06T11:56:53.156633 #5496]  INFO -- : Started GET "/assets/application-e2e7d60b44f83718e74afb3faff5ee7bf9b31b94e61e2c1e7555fb709e8091f4.css" for 127.0.0.1 at 2016-04-06 11:56:53 -0500
+F, [2016-04-06T11:56:53.158633 #5496] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-e2e7d60b44f83718e74afb3faff5ee7bf9b31b94e61e2c1e7555fb709e8091f4.css"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2016-04-06T11:57:03.643233 #5496]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 11:57:03 -0500
+I, [2016-04-06T11:57:03.644233 #5496]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T11:57:03.664234 #5496]  INFO -- :   Rendered voluntarios/_form.html.erb (18.0ms)
+I, [2016-04-06T11:57:03.664234 #5496]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (19.0ms)
+I, [2016-04-06T11:57:03.665234 #5496]  INFO -- : Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T11:57:03.749239 #5496]  INFO -- : Started GET "/assets/application-e2e7d60b44f83718e74afb3faff5ee7bf9b31b94e61e2c1e7555fb709e8091f4.css" for 127.0.0.1 at 2016-04-06 11:57:03 -0500
+F, [2016-04-06T11:57:03.751239 #5496] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-e2e7d60b44f83718e74afb3faff5ee7bf9b31b94e61e2c1e7555fb709e8091f4.css"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2016-04-06T11:57:03.756239 #5496]  INFO -- : Started GET "/assets/application-05e3fadca73b6eb32943d6509f9ac09e2dccf8d8a83b651804b7725783ccbdea.js" for 127.0.0.1 at 2016-04-06 11:57:03 -0500
+F, [2016-04-06T11:57:03.758240 #5496] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-05e3fadca73b6eb32943d6509f9ac09e2dccf8d8a83b651804b7725783ccbdea.js"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2016-04-06T11:57:12.165720 #5496]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 11:57:12 -0500
+I, [2016-04-06T11:57:12.166721 #5496]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T11:57:12.184722 #5496]  INFO -- :   Rendered voluntarios/_form.html.erb (16.0ms)
+I, [2016-04-06T11:57:12.184722 #5496]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T11:57:12.185722 #5496]  INFO -- : Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T11:57:12.269726 #5496]  INFO -- : Started GET "/assets/application-e2e7d60b44f83718e74afb3faff5ee7bf9b31b94e61e2c1e7555fb709e8091f4.css" for 127.0.0.1 at 2016-04-06 11:57:12 -0500
+F, [2016-04-06T11:57:12.271727 #5496] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-e2e7d60b44f83718e74afb3faff5ee7bf9b31b94e61e2c1e7555fb709e8091f4.css"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2016-04-06T11:57:12.274727 #5496]  INFO -- : Started GET "/assets/application-05e3fadca73b6eb32943d6509f9ac09e2dccf8d8a83b651804b7725783ccbdea.js" for 127.0.0.1 at 2016-04-06 11:57:12 -0500
+F, [2016-04-06T11:57:12.276727 #5496] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-05e3fadca73b6eb32943d6509f9ac09e2dccf8d8a83b651804b7725783ccbdea.js"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2016-04-06T11:58:37.548604 #5036]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 11:58:37 -0500
+I, [2016-04-06T11:58:37.571605 #5036]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T11:58:37.674611 #5036]  INFO -- :   Rendered voluntarios/_form.html.erb (52.0ms)
+I, [2016-04-06T11:58:37.674611 #5036]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (54.0ms)
+I, [2016-04-06T11:58:37.677611 #5036]  INFO -- : Completed 200 OK in 106ms (Views: 66.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T11:58:37.760616 #5036]  INFO -- : Started GET "/assets/application-05e3fadca73b6eb32943d6509f9ac09e2dccf8d8a83b651804b7725783ccbdea.js" for 127.0.0.1 at 2016-04-06 11:58:37 -0500
+F, [2016-04-06T11:58:38.262645 #5036] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-05e3fadca73b6eb32943d6509f9ac09e2dccf8d8a83b651804b7725783ccbdea.js"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2016-04-06T11:58:38.264645 #5036]  INFO -- : Started GET "/assets/application-e2e7d60b44f83718e74afb3faff5ee7bf9b31b94e61e2c1e7555fb709e8091f4.css" for 127.0.0.1 at 2016-04-06 11:58:38 -0500
+F, [2016-04-06T11:58:38.413654 #5036] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-e2e7d60b44f83718e74afb3faff5ee7bf9b31b94e61e2c1e7555fb709e8091f4.css"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2016-04-06T11:58:44.797019 #5036]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 11:58:44 -0500
+I, [2016-04-06T11:58:44.798019 #5036]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T11:58:44.817020 #5036]  INFO -- :   Rendered voluntarios/_form.html.erb (17.0ms)
+I, [2016-04-06T11:58:44.817020 #5036]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T11:58:44.819020 #5036]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T11:58:44.930026 #5036]  INFO -- : Started GET "/assets/application-05e3fadca73b6eb32943d6509f9ac09e2dccf8d8a83b651804b7725783ccbdea.js" for 127.0.0.1 at 2016-04-06 11:58:44 -0500
+F, [2016-04-06T11:58:44.932026 #5036] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-05e3fadca73b6eb32943d6509f9ac09e2dccf8d8a83b651804b7725783ccbdea.js"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2016-04-06T11:58:44.936027 #5036]  INFO -- : Started GET "/assets/application-e2e7d60b44f83718e74afb3faff5ee7bf9b31b94e61e2c1e7555fb709e8091f4.css" for 127.0.0.1 at 2016-04-06 11:58:44 -0500
+F, [2016-04-06T11:58:44.938027 #5036] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-e2e7d60b44f83718e74afb3faff5ee7bf9b31b94e61e2c1e7555fb709e8091f4.css"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2016-04-06T11:59:04.472144 #5036]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 11:59:04 -0500
+I, [2016-04-06T11:59:04.473144 #5036]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T11:59:04.490145 #5036]  INFO -- :   Rendered voluntarios/_form.html.erb (16.0ms)
+I, [2016-04-06T11:59:04.491145 #5036]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T11:59:04.492145 #5036]  INFO -- : Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T11:59:04.585151 #5036]  INFO -- : Started GET "/assets/application-e2e7d60b44f83718e74afb3faff5ee7bf9b31b94e61e2c1e7555fb709e8091f4.css" for 127.0.0.1 at 2016-04-06 11:59:04 -0500
+F, [2016-04-06T11:59:04.587151 #5036] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-e2e7d60b44f83718e74afb3faff5ee7bf9b31b94e61e2c1e7555fb709e8091f4.css"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2016-04-06T11:59:04.593151 #5036]  INFO -- : Started GET "/assets/application-05e3fadca73b6eb32943d6509f9ac09e2dccf8d8a83b651804b7725783ccbdea.js" for 127.0.0.1 at 2016-04-06 11:59:04 -0500
+F, [2016-04-06T11:59:04.595151 #5036] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-05e3fadca73b6eb32943d6509f9ac09e2dccf8d8a83b651804b7725783ccbdea.js"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2016-04-06T12:00:31.758137 #5600]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:00:31 -0500
+I, [2016-04-06T12:00:31.781138 #5600]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:00:31.859142 #5600] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:00:31.868143 #5600] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:00:31.868143 #5600]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (64.0ms)
+I, [2016-04-06T12:00:31.871143 #5600]  INFO -- : Completed 200 OK in 90ms (Views: 73.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T12:00:38.002494 #5600]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 12:00:38 -0500
+I, [2016-04-06T12:00:38.004494 #5600]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T12:00:38.048496 #5600]  INFO -- :   Rendered voluntarios/_form.html.erb (21.0ms)
+I, [2016-04-06T12:00:38.049496 #5600]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (24.0ms)
+I, [2016-04-06T12:00:38.050496 #5600]  INFO -- : Completed 200 OK in 46ms (Views: 28.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T12:00:51.655275 #5600]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 12:00:51 -0500
+I, [2016-04-06T12:00:51.656275 #5600]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T12:00:51.675276 #5600]  INFO -- :   Rendered voluntarios/_form.html.erb (17.0ms)
+I, [2016-04-06T12:00:51.676276 #5600]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T12:00:51.677276 #5600]  INFO -- : Completed 200 OK in 20ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T12:00:55.912518 #5600]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:00:55 -0500
+I, [2016-04-06T12:00:55.913518 #5600]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:00:55.926519 #5600] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:00:55.934519 #5600] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:00:55.934519 #5600]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (19.0ms)
+I, [2016-04-06T12:00:55.935519 #5600]  INFO -- : Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T12:00:57.739623 #5600]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:00:57 -0500
+I, [2016-04-06T12:00:57.740623 #5600]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:00:57.752623 #5600] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:00:57.758624 #5600] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:00:57.759624 #5600]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T12:00:57.760624 #5600]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T12:00:59.039697 #5600]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:00:59 -0500
+I, [2016-04-06T12:00:59.040697 #5600]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:00:59.057698 #5600] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:00:59.073699 #5600] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:00:59.073699 #5600]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (30.0ms)
+I, [2016-04-06T12:00:59.074699 #5600]  INFO -- : Completed 200 OK in 34ms (Views: 31.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T12:00:59.591729 #5600]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:00:59 -0500
+I, [2016-04-06T12:00:59.592729 #5600]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:00:59.603729 #5600] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:00:59.610730 #5600] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:00:59.610730 #5600]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T12:00:59.611730 #5600]  INFO -- : Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T12:00:59.695734 #5600]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:00:59 -0500
+I, [2016-04-06T12:00:59.696735 #5600]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:00:59.708735 #5600] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:00:59.714736 #5600] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:00:59.714736 #5600]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T12:00:59.715736 #5600]  INFO -- : Completed 200 OK in 19ms (Views: 16.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T12:00:59.929748 #5600]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:00:59 -0500
+I, [2016-04-06T12:00:59.930748 #5600]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:00:59.942749 #5600] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:00:59.948749 #5600] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:00:59.949749 #5600]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T12:00:59.950749 #5600]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T12:01:00.013753 #5600]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:01:00 -0500
+I, [2016-04-06T12:01:00.014753 #5600]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:01:00.026753 #5600] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:01:00.032754 #5600] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:01:00.033754 #5600]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T12:01:00.034754 #5600]  INFO -- : Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T12:01:00.217764 #5600]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:01:00 -0500
+I, [2016-04-06T12:01:00.218764 #5600]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:01:00.230765 #5600] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:01:00.237765 #5600] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:01:00.237765 #5600]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T12:01:00.239766 #5600]  INFO -- : Completed 200 OK in 20ms (Views: 17.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T12:01:00.432777 #5600]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:01:00 -0500
+I, [2016-04-06T12:01:00.433777 #5600]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:01:00.445777 #5600] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:01:00.451778 #5600] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:01:00.452778 #5600]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T12:01:00.453778 #5600]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T12:01:01.852858 #5600]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:01:01 -0500
+I, [2016-04-06T12:01:01.853858 #5600]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:01:01.864859 #5600] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:01:01.871859 #5600] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:01:01.871859 #5600]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T12:01:01.872859 #5600]  INFO -- : Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T12:01:02.431891 #5600]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:01:02 -0500
+I, [2016-04-06T12:01:02.432891 #5600]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:01:02.445892 #5600] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:01:02.452892 #5600] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:01:02.452892 #5600]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T12:01:02.488894 #5600]  INFO -- : Completed 200 OK in 56ms (Views: 53.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T12:01:02.519896 #5600]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:01:02 -0500
+I, [2016-04-06T12:01:02.520896 #5600]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:01:02.532897 #5600] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:01:02.539897 #5600] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:01:02.539897 #5600]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T12:01:02.540897 #5600]  INFO -- : Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T12:01:02.754909 #5600]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:01:02 -0500
+I, [2016-04-06T12:01:02.755909 #5600]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:01:02.767910 #5600] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:01:02.774911 #5600] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:01:02.774911 #5600]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T12:01:02.776911 #5600]  INFO -- : Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T12:01:03.069927 #5600]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:01:03 -0500
+I, [2016-04-06T12:01:03.070928 #5600]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:01:03.083928 #5600] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:01:03.090929 #5600] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:01:03.090929 #5600]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T12:01:03.092929 #5600]  INFO -- : Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T12:01:03.315942 #5600]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:01:03 -0500
+I, [2016-04-06T12:01:03.316942 #5600]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:01:03.328942 #5600] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:01:03.334943 #5600] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:01:03.334943 #5600]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T12:01:03.336943 #5600]  INFO -- : Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T12:01:03.449949 #5600]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:01:03 -0500
+I, [2016-04-06T12:01:03.450949 #5600]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:01:03.462950 #5600] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:01:03.468950 #5600] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:01:03.468950 #5600]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T12:01:03.470950 #5600]  INFO -- : Completed 200 OK in 20ms (Views: 17.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T12:01:14.448578 #5600]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:01:14 -0500
+I, [2016-04-06T12:01:14.449578 #5600]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:01:14.461579 #5600] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:01:14.467579 #5600] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:01:14.467579 #5600]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T12:01:14.469579 #5600]  INFO -- : Completed 200 OK in 20ms (Views: 16.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T12:01:17.798770 #5600]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:01:17 -0500
+I, [2016-04-06T12:01:17.799770 #5600]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:01:17.817771 #5600] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:01:17.828772 #5600] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:01:17.829772 #5600]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (27.0ms)
+I, [2016-04-06T12:01:17.831772 #5600]  INFO -- : Completed 200 OK in 32ms (Views: 29.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T12:01:18.381803 #5600]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:01:18 -0500
+I, [2016-04-06T12:01:18.382803 #5600]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:01:18.395804 #5600] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:01:18.402804 #5600] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:01:18.402804 #5600]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T12:01:18.404805 #5600]  INFO -- : Completed 200 OK in 22ms (Views: 19.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T12:01:18.435806 #5600]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:01:18 -0500
+I, [2016-04-06T12:01:18.436806 #5600]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:01:18.450807 #5600] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:01:18.457808 #5600] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:01:18.457808 #5600]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T12:01:18.458808 #5600]  INFO -- : Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T12:01:18.855830 #5600]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:01:18 -0500
+I, [2016-04-06T12:01:18.856830 #5600]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:01:18.874831 #5600] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:01:18.880832 #5600] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:01:18.880832 #5600]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T12:01:18.882832 #5600]  INFO -- : Completed 200 OK in 25ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T12:01:19.066842 #5600]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:01:19 -0500
+I, [2016-04-06T12:01:19.067842 #5600]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:01:19.078843 #5600] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:01:19.084843 #5600] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:01:19.084843 #5600]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T12:01:19.085844 #5600]  INFO -- : Completed 200 OK in 18ms (Views: 16.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T12:02:38.033359 #6504]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 12:02:38 -0500
+I, [2016-04-06T12:02:38.056360 #6504]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T12:02:38.134365 #6504] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T12:02:38.143365 #6504] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T12:02:38.144365 #6504]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (63.0ms)
+I, [2016-04-06T12:02:38.146366 #6504]  INFO -- : Completed 200 OK in 90ms (Views: 74.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T14:51:39.283405 #5800]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 14:51:39 -0500
+I, [2016-04-06T14:51:39.306407 #5800]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T14:51:39.384411 #5800] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T14:51:39.393412 #5800] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T14:51:39.393412 #5800]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (64.0ms)
+I, [2016-04-06T14:51:39.396412 #5800]  INFO -- : Completed 200 OK in 90ms (Views: 72.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T14:51:50.268034 #5800]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 14:51:50 -0500
+I, [2016-04-06T14:51:50.270034 #5800]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T14:51:50.313036 #5800]  INFO -- :   Rendered voluntarios/_form.html.erb (20.0ms)
+I, [2016-04-06T14:51:50.313036 #5800]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (22.0ms)
+I, [2016-04-06T14:51:50.315036 #5800]  INFO -- : Completed 200 OK in 45ms (Views: 27.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T14:52:07.560023 #5800]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 14:52:07 -0500
+I, [2016-04-06T14:52:07.561023 #5800]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T14:52:07.574024 #5800] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T14:52:07.581024 #5800] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T14:52:07.581024 #5800]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T14:52:07.583024 #5800]  INFO -- : Completed 200 OK in 21ms (Views: 18.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T14:52:10.646199 #5800]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 14:52:10 -0500
+I, [2016-04-06T14:52:10.647199 #5800]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T14:52:10.666200 #5800]  INFO -- :   Rendered voluntarios/_form.html.erb (17.0ms)
+I, [2016-04-06T14:52:10.666200 #5800]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T14:52:10.668200 #5800]  INFO -- : Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:38:03.045627 #2616]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:38:03 -0500
+I, [2016-04-06T15:38:03.069629 #2616]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:38:03.189636 #2616]  INFO -- :   Rendered voluntarios/_form.html.erb (55.0ms)
+I, [2016-04-06T15:38:03.189636 #2616]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (60.0ms)
+I, [2016-04-06T15:38:03.191636 #2616]  INFO -- : Completed 200 OK in 122ms (Views: 75.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T15:38:03.194636 #2616]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:38:03 -0500
+I, [2016-04-06T15:38:03.195636 #2616]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:38:03.213637 #2616]  INFO -- :   Rendered voluntarios/_form.html.erb (16.0ms)
+I, [2016-04-06T15:38:03.214637 #2616]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T15:38:03.215637 #2616]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:38:03.217637 #2616]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:38:03 -0500
+I, [2016-04-06T15:38:03.218637 #2616]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:38:03.237638 #2616]  INFO -- :   Rendered voluntarios/_form.html.erb (18.0ms)
+I, [2016-04-06T15:38:03.237638 #2616]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T15:38:03.239639 #2616]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:38:03.240639 #2616]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:38:03 -0500
+I, [2016-04-06T15:38:03.241639 #2616]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:38:03.260640 #2616]  INFO -- :   Rendered voluntarios/_form.html.erb (16.0ms)
+I, [2016-04-06T15:38:03.260640 #2616]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T15:38:03.261640 #2616]  INFO -- : Completed 200 OK in 19ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:38:03.263640 #2616]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:38:03 -0500
+I, [2016-04-06T15:38:03.264640 #2616]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:38:03.283641 #2616]  INFO -- :   Rendered voluntarios/_form.html.erb (17.0ms)
+I, [2016-04-06T15:38:03.283641 #2616]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T15:38:03.284641 #2616]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:38:03.286641 #2616]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:38:03 -0500
+I, [2016-04-06T15:38:03.287641 #2616]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:38:03.307642 #2616]  INFO -- :   Rendered voluntarios/_form.html.erb (17.0ms)
+I, [2016-04-06T15:38:03.307642 #2616]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T15:38:03.308643 #2616]  INFO -- : Completed 200 OK in 20ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:38:03.310643 #2616]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:38:03 -0500
+I, [2016-04-06T15:38:03.311643 #2616]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:38:03.338644 #2616]  INFO -- :   Rendered voluntarios/_form.html.erb (26.0ms)
+I, [2016-04-06T15:38:03.339644 #2616]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (26.0ms)
+I, [2016-04-06T15:38:03.340644 #2616]  INFO -- : Completed 200 OK in 29ms (Views: 27.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:38:03.342644 #2616]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:38:03 -0500
+I, [2016-04-06T15:38:03.343645 #2616]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:38:03.362646 #2616]  INFO -- :   Rendered voluntarios/_form.html.erb (18.0ms)
+I, [2016-04-06T15:38:03.362646 #2616]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T15:38:03.363646 #2616]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:38:45.824074 #2616]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:38:45 -0500
+I, [2016-04-06T15:38:45.826074 #2616]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:38:45.845075 #2616]  INFO -- :   Rendered voluntarios/_form.html.erb (18.0ms)
+I, [2016-04-06T15:38:45.845075 #2616]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T15:38:45.846076 #2616]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:44:42.937500 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:44:42 -0500
+I, [2016-04-06T15:44:42.960501 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:44:43.065507 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (52.0ms)
+I, [2016-04-06T15:44:43.066507 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (55.0ms)
+I, [2016-04-06T15:44:43.068507 #5976]  INFO -- : Completed 200 OK in 108ms (Views: 66.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T15:45:01.114540 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:45:01 -0500
+I, [2016-04-06T15:45:01.115540 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:45:01.135541 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (18.0ms)
+I, [2016-04-06T15:45:01.136541 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (19.0ms)
+I, [2016-04-06T15:45:01.138541 #5976]  INFO -- : Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:45:27.196031 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:45:27 -0500
+I, [2016-04-06T15:45:27.198032 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:45:27.221033 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (22.0ms)
+I, [2016-04-06T15:45:27.221033 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (22.0ms)
+I, [2016-04-06T15:45:27.223033 #5976]  INFO -- : Completed 200 OK in 25ms (Views: 23.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:45:27.723062 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:45:27 -0500
+I, [2016-04-06T15:45:27.724062 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:45:27.743063 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (17.0ms)
+I, [2016-04-06T15:45:27.743063 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T15:45:27.744063 #5976]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:45:27.839068 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:45:27 -0500
+I, [2016-04-06T15:45:27.840068 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:45:27.859069 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (17.0ms)
+I, [2016-04-06T15:45:27.859069 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T15:45:27.860069 #5976]  INFO -- : Completed 200 OK in 20ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:45:28.134085 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:45:28 -0500
+I, [2016-04-06T15:45:28.135085 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:45:28.162087 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (25.0ms)
+I, [2016-04-06T15:45:28.163087 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (26.0ms)
+I, [2016-04-06T15:45:28.164087 #5976]  INFO -- : Completed 200 OK in 29ms (Views: 28.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:45:28.183088 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:45:28 -0500
+I, [2016-04-06T15:45:28.184088 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:45:28.205089 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (19.0ms)
+I, [2016-04-06T15:45:28.205089 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (19.0ms)
+I, [2016-04-06T15:45:28.206089 #5976]  INFO -- : Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:45:28.211089 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:45:28 -0500
+I, [2016-04-06T15:45:28.212090 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:45:28.230091 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (17.0ms)
+I, [2016-04-06T15:45:28.231091 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T15:45:28.232091 #5976]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:45:28.487105 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:45:28 -0500
+I, [2016-04-06T15:45:28.488105 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:45:28.508106 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (19.0ms)
+I, [2016-04-06T15:45:28.508106 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (19.0ms)
+I, [2016-04-06T15:45:28.510107 #5976]  INFO -- : Completed 200 OK in 22ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:45:28.573110 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:45:28 -0500
+I, [2016-04-06T15:45:28.575110 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:45:28.597112 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (20.0ms)
+I, [2016-04-06T15:45:28.597112 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (20.0ms)
+I, [2016-04-06T15:45:28.598112 #5976]  INFO -- : Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:45:28.613112 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:45:28 -0500
+I, [2016-04-06T15:45:28.614113 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:45:28.632114 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (17.0ms)
+I, [2016-04-06T15:45:28.633114 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T15:45:28.634114 #5976]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:45:28.918130 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:45:28 -0500
+I, [2016-04-06T15:45:28.920130 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:45:28.939131 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (18.0ms)
+I, [2016-04-06T15:45:28.939131 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T15:45:28.940131 #5976]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:45:28.994134 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:45:28 -0500
+I, [2016-04-06T15:45:28.995134 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:45:29.013135 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (17.0ms)
+I, [2016-04-06T15:45:29.013135 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T15:45:29.014135 #5976]  INFO -- : Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:45:29.279151 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:45:29 -0500
+I, [2016-04-06T15:45:29.280151 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:45:29.299152 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (18.0ms)
+I, [2016-04-06T15:45:29.300152 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (19.0ms)
+I, [2016-04-06T15:45:29.301152 #5976]  INFO -- : Completed 200 OK in 21ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:45:29.356155 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:45:29 -0500
+I, [2016-04-06T15:45:29.357155 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:45:29.410158 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (52.0ms)
+I, [2016-04-06T15:45:29.411158 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (53.0ms)
+I, [2016-04-06T15:45:29.412158 #5976]  INFO -- : Completed 200 OK in 55ms (Views: 54.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:45:29.417158 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:45:29 -0500
+I, [2016-04-06T15:45:29.418159 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:45:29.437160 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (17.0ms)
+I, [2016-04-06T15:45:29.437160 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T15:45:29.438160 #5976]  INFO -- : Completed 200 OK in 20ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:45:29.712175 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:45:29 -0500
+I, [2016-04-06T15:45:29.713175 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:45:29.732176 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (17.0ms)
+I, [2016-04-06T15:45:29.732176 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T15:45:29.733177 #5976]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:45:29.808181 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:45:29 -0500
+I, [2016-04-06T15:45:29.809181 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:45:29.827182 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (17.0ms)
+I, [2016-04-06T15:45:29.828182 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T15:45:29.830182 #5976]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:45:29.834182 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:45:29 -0500
+I, [2016-04-06T15:45:29.835182 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:45:29.854183 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (17.0ms)
+I, [2016-04-06T15:45:29.854183 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T15:45:29.855184 #5976]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:45:30.159201 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:45:30 -0500
+I, [2016-04-06T15:45:30.160201 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:45:30.178202 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (17.0ms)
+I, [2016-04-06T15:45:30.179202 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T15:45:30.180202 #5976]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:45:30.243206 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:45:30 -0500
+I, [2016-04-06T15:45:30.244206 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:45:30.263207 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (18.0ms)
+I, [2016-04-06T15:45:30.263207 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T15:45:30.264207 #5976]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:46:34.747895 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:46:34 -0500
+I, [2016-04-06T15:46:34.748895 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:46:34.769896 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (19.0ms)
+I, [2016-04-06T15:46:34.769896 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (20.0ms)
+I, [2016-04-06T15:46:34.771897 #5976]  INFO -- : Completed 200 OK in 23ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:46:44.415448 #5976]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-06 15:46:44 -0500
+I, [2016-04-06T15:46:44.416448 #5976]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T15:46:44.437449 #5976] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T15:46:44.447450 #5976] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T15:46:44.447450 #5976]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (27.0ms)
+I, [2016-04-06T15:46:44.449450 #5976]  INFO -- : Completed 200 OK in 33ms (Views: 29.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T15:48:17.506773 #5976]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-06 15:48:17 -0500
+I, [2016-04-06T15:48:17.508773 #5976]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T15:48:17.535774 #5976] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T15:48:17.542775 #5976] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T15:48:17.543775 #5976]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (33.0ms)
+I, [2016-04-06T15:48:17.544775 #5976]  INFO -- : Completed 200 OK in 36ms (Views: 33.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T15:48:20.765959 #5976]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-06 15:48:20 -0500
+I, [2016-04-06T15:48:20.767959 #5976]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T15:48:20.779960 #5976] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T15:48:20.785960 #5976] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T15:48:20.786960 #5976]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T15:48:20.787960 #5976]  INFO -- : Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T15:48:21.736015 #5976]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-06 15:48:21 -0500
+I, [2016-04-06T15:48:21.737015 #5976]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T15:48:21.748015 #5976] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T15:48:21.756016 #5976] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T15:48:21.756016 #5976]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T15:48:21.758016 #5976]  INFO -- : Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T15:48:21.971028 #5976]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-06 15:48:21 -0500
+I, [2016-04-06T15:48:21.972028 #5976]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T15:48:21.984029 #5976] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T15:48:21.991029 #5976] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T15:48:21.991029 #5976]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T15:48:21.993029 #5976]  INFO -- : Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:48:22.096035 #5976]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-06 15:48:22 -0500
+I, [2016-04-06T15:48:22.097035 #5976]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T15:48:22.109036 #5976] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T15:48:22.116036 #5976] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T15:48:22.116036 #5976]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T15:48:22.117036 #5976]  INFO -- : Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T15:48:22.121037 #5976]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-06 15:48:22 -0500
+I, [2016-04-06T15:48:22.122037 #5976]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T15:48:22.134037 #5976] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T15:48:22.141038 #5976] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T15:48:22.141038 #5976]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T15:48:22.142038 #5976]  INFO -- : Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T15:48:22.426054 #5976]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-06 15:48:22 -0500
+I, [2016-04-06T15:48:22.427054 #5976]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T15:48:22.439055 #5976] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T15:48:22.445055 #5976] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T15:48:22.445055 #5976]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T15:48:22.447055 #5976]  INFO -- : Completed 200 OK in 20ms (Views: 17.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T15:48:22.490058 #5976]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-06 15:48:22 -0500
+I, [2016-04-06T15:48:22.491058 #5976]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T15:48:22.503058 #5976] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T15:48:22.511059 #5976] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T15:48:22.511059 #5976]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T15:48:22.513059 #5976]  INFO -- : Completed 200 OK in 22ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:48:22.516059 #5976]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-06 15:48:22 -0500
+I, [2016-04-06T15:48:22.518059 #5976]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T15:48:22.529060 #5976] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T15:48:22.536060 #5976] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T15:48:22.536060 #5976]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T15:48:22.538060 #5976]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:48:22.812076 #5976]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-06 15:48:22 -0500
+I, [2016-04-06T15:48:22.813076 #5976]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T15:48:22.826077 #5976] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T15:48:22.839078 #5976] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T15:48:22.840078 #5976]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (25.0ms)
+I, [2016-04-06T15:48:22.841078 #5976]  INFO -- : Completed 200 OK in 28ms (Views: 26.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:48:22.910082 #5976]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-06 15:48:22 -0500
+I, [2016-04-06T15:48:22.911082 #5976]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T15:48:22.923082 #5976] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T15:48:22.930083 #5976] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T15:48:22.930083 #5976]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T15:48:22.931083 #5976]  INFO -- : Completed 200 OK in 20ms (Views: 17.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T15:48:22.936083 #5976]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-06 15:48:22 -0500
+I, [2016-04-06T15:48:22.937083 #5976]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T15:48:22.949084 #5976] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T15:48:22.955084 #5976] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T15:48:22.956084 #5976]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T15:48:22.957084 #5976]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:48:23.210099 #5976]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-06 15:48:23 -0500
+I, [2016-04-06T15:48:23.211099 #5976]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T15:48:23.223100 #5976] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T15:48:23.230100 #5976] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T15:48:23.231100 #5976]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T15:48:23.232100 #5976]  INFO -- : Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:48:23.286103 #5976]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-06 15:48:23 -0500
+I, [2016-04-06T15:48:23.287103 #5976]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T15:48:23.299104 #5976] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T15:48:23.305104 #5976] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T15:48:23.306104 #5976]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T15:48:23.307104 #5976]  INFO -- : Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:48:23.331106 #5976]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-06 15:48:23 -0500
+I, [2016-04-06T15:48:23.332106 #5976]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T15:48:23.344107 #5976] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T15:48:23.350107 #5976] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T15:48:23.350107 #5976]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T15:48:23.352107 #5976]  INFO -- : Completed 200 OK in 19ms (Views: 16.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T15:48:23.575120 #5976]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-06 15:48:23 -0500
+I, [2016-04-06T15:48:23.576120 #5976]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T15:48:23.588120 #5976] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T15:48:23.594121 #5976] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T15:48:23.595121 #5976]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T15:48:23.596121 #5976]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:48:27.597350 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:48:27 -0500
+I, [2016-04-06T15:48:27.598350 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:48:27.624351 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (19.0ms)
+I, [2016-04-06T15:48:27.624351 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (22.0ms)
+I, [2016-04-06T15:48:27.626351 #5976]  INFO -- : Completed 200 OK in 27ms (Views: 26.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:48:33.303676 #5976]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:48:33 -0500
+I, [2016-04-06T15:48:33.305676 #5976]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:48:33.330678 #5976]  INFO -- :   Rendered voluntarios/_form.html.erb (22.0ms)
+I, [2016-04-06T15:48:33.331678 #5976]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (24.0ms)
+I, [2016-04-06T15:48:33.332678 #5976]  INFO -- : Completed 200 OK in 27ms (Views: 26.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:50:58.527983 #5012]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:50:58 -0500
+I, [2016-04-06T15:50:58.551984 #5012]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:50:58.659990 #5012]  INFO -- :   Rendered voluntarios/_form.html.erb (52.0ms)
+I, [2016-04-06T15:50:58.659990 #5012]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (56.0ms)
+I, [2016-04-06T15:50:58.661990 #5012]  INFO -- : Completed 200 OK in 109ms (Views: 68.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T15:51:20.251225 #5012]  INFO -- : Started GET "/" for 127.0.0.1 at 2016-04-06 15:51:20 -0500
+F, [2016-04-06T15:51:20.253225 #5012] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2016-04-06T15:51:26.578587 #5012]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-06 15:51:26 -0500
+I, [2016-04-06T15:51:26.580587 #5012]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T15:51:26.607589 #5012] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T15:51:26.619589 #5012] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T15:51:26.620589 #5012]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (35.0ms)
+I, [2016-04-06T15:51:26.622589 #5012]  INFO -- : Completed 200 OK in 42ms (Views: 39.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:57:07.268073 #5012]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:57:07 -0500
+I, [2016-04-06T15:57:07.270073 #5012]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:57:07.293075 #5012]  INFO -- :   Rendered voluntarios/_form.html.erb (19.0ms)
+I, [2016-04-06T15:57:07.293075 #5012]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (20.0ms)
+I, [2016-04-06T15:57:07.294075 #5012]  INFO -- : Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:57:20.904853 #5012]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:57:20 -0500
+I, [2016-04-06T15:57:20.905853 #5012]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:57:20.925854 #5012]  INFO -- :   Rendered voluntarios/_form.html.erb (18.0ms)
+I, [2016-04-06T15:57:20.926854 #5012]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T15:57:20.927855 #5012]  INFO -- : Completed 200 OK in 20ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T15:57:24.678069 #5012]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 15:57:24 -0500
+I, [2016-04-06T15:57:24.679069 #5012]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T15:57:24.699070 #5012]  INFO -- :   Rendered voluntarios/_form.html.erb (18.0ms)
+I, [2016-04-06T15:57:24.699070 #5012]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T15:57:24.700070 #5012]  INFO -- : Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T16:06:52.587552 #5012]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 16:06:52 -0500
+I, [2016-04-06T16:06:52.597552 #5012]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T16:06:52.616553 #5012]  INFO -- :   Rendered voluntarios/_form.html.erb (18.0ms)
+I, [2016-04-06T16:06:52.617553 #5012]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (19.0ms)
+I, [2016-04-06T16:06:52.618553 #5012]  INFO -- : Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T17:14:56.408133 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:14:56 -0500
+I, [2016-04-06T17:14:56.442135 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:14:56.535140 #5136] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:14:56.544141 #5136] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:14:56.545141 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (73.0ms)
+I, [2016-04-06T17:14:56.548141 #5136]  INFO -- : Completed 200 OK in 103ms (Views: 87.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T17:14:56.550141 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:14:56 -0500
+I, [2016-04-06T17:14:56.551141 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:14:56.563142 #5136] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:14:56.570142 #5136] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:14:56.570142 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T17:14:56.571142 #5136]  INFO -- : Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T17:14:56.573142 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:14:56 -0500
+I, [2016-04-06T17:14:56.574142 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:14:56.587143 #5136] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:14:56.593143 #5136] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:14:56.594143 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T17:14:56.595143 #5136]  INFO -- : Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T17:14:56.597144 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:14:56 -0500
+I, [2016-04-06T17:14:56.598144 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:14:56.609144 #5136] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:14:56.616145 #5136] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:14:56.616145 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T17:14:56.618145 #5136]  INFO -- : Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T17:14:56.619145 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:14:56 -0500
+I, [2016-04-06T17:14:56.620145 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:14:56.633146 #5136] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:14:56.640146 #5136] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:14:56.640146 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T17:14:56.641146 #5136]  INFO -- : Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T17:14:56.643146 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:14:56 -0500
+I, [2016-04-06T17:14:56.644146 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:14:56.656147 #5136] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:14:56.663147 #5136] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:14:56.663147 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T17:14:56.664147 #5136]  INFO -- : Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T17:14:56.666148 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:14:56 -0500
+I, [2016-04-06T17:14:56.667148 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:14:56.679148 #5136] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:14:56.693149 #5136] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:14:56.694149 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (25.0ms)
+I, [2016-04-06T17:14:56.695149 #5136]  INFO -- : Completed 200 OK in 28ms (Views: 27.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T17:14:56.697149 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:14:56 -0500
+I, [2016-04-06T17:14:56.698149 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:14:56.709150 #5136] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:14:56.716150 #5136] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:14:56.716150 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T17:14:56.717150 #5136]  INFO -- : Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T17:14:56.719151 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:14:56 -0500
+I, [2016-04-06T17:14:56.720151 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:14:56.732151 #5136] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:14:56.738152 #5136] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:14:56.739152 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T17:14:56.740152 #5136]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T17:14:56.742152 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:14:56 -0500
+I, [2016-04-06T17:14:56.743152 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:14:56.754153 #5136] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:14:56.761153 #5136] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:14:56.761153 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T17:14:56.763153 #5136]  INFO -- : Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T17:15:50.539229 #5136]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 17:15:50 -0500
+I, [2016-04-06T17:15:50.541229 #5136]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T17:15:50.585232 #5136]  INFO -- :   Rendered voluntarios/_form.html.erb (19.0ms)
+I, [2016-04-06T17:15:50.586232 #5136]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (24.0ms)
+I, [2016-04-06T17:15:50.587232 #5136]  INFO -- : Completed 200 OK in 46ms (Views: 28.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T17:15:57.751641 #5136]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 17:15:57 -0500
+I, [2016-04-06T17:15:57.753642 #5136]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T17:15:57.777643 #5136]  INFO -- :   Rendered voluntarios/_form.html.erb (19.0ms)
+I, [2016-04-06T17:15:57.778643 #5136]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (22.0ms)
+I, [2016-04-06T17:15:57.779643 #5136]  INFO -- : Completed 200 OK in 26ms (Views: 26.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T17:17:05.087493 #5136]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 17:17:05 -0500
+I, [2016-04-06T17:17:05.088493 #5136]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T17:17:05.106494 #5136]  INFO -- :   Rendered voluntarios/_form.html.erb (16.0ms)
+I, [2016-04-06T17:17:05.107494 #5136]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T17:17:05.108494 #5136]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T17:21:23.152253 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:21:23 -0500
+I, [2016-04-06T17:21:23.153253 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:21:23.166254 #5136] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:21:23.207256 #5136] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:21:23.207256 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (52.0ms)
+I, [2016-04-06T17:21:23.208256 #5136]  INFO -- : Completed 200 OK in 55ms (Views: 52.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T17:21:35.443956 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:21:35 -0500
+I, [2016-04-06T17:21:35.444956 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:21:35.456957 #5136] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:21:35.462957 #5136] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:21:35.462957 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T17:21:35.463957 #5136]  INFO -- : Completed 200 OK in 18ms (Views: 15.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T17:21:54.062021 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:21:54 -0500
+I, [2016-04-06T17:21:54.063021 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:21:54.074022 #5136] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:21:54.081022 #5136] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:21:54.081022 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T17:21:54.082022 #5136]  INFO -- : Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T17:21:56.676171 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:21:56 -0500
+I, [2016-04-06T17:21:56.677171 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:21:56.690172 #5136] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:21:56.697172 #5136] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:21:56.697172 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T17:21:56.698172 #5136]  INFO -- : Completed 200 OK in 21ms (Views: 18.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T17:21:58.295263 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:21:58 -0500
+I, [2016-04-06T17:21:58.296263 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:21:58.308264 #5136] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:21:58.314264 #5136] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:21:58.315264 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T17:21:58.316265 #5136]  INFO -- : Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T17:21:58.895298 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:21:58 -0500
+I, [2016-04-06T17:21:58.896298 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:21:58.908298 #5136] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:21:58.915299 #5136] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:21:58.915299 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T17:21:58.917299 #5136]  INFO -- : Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T17:21:58.950301 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:21:58 -0500
+I, [2016-04-06T17:21:58.951301 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:21:58.963302 #5136] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:21:58.969302 #5136] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:21:58.970302 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T17:21:58.971302 #5136]  INFO -- : Completed 200 OK in 20ms (Views: 17.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T17:21:59.400327 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:21:59 -0500
+I, [2016-04-06T17:21:59.401327 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:21:59.413327 #5136] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:21:59.419328 #5136] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:21:59.420328 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T17:21:59.421328 #5136]  INFO -- : Completed 200 OK in 20ms (Views: 17.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T17:21:59.466330 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:21:59 -0500
+I, [2016-04-06T17:21:59.467330 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:21:59.479331 #5136] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:21:59.486331 #5136] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:21:59.486331 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T17:21:59.488332 #5136]  INFO -- : Completed 200 OK in 21ms (Views: 17.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T17:21:59.681343 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:21:59 -0500
+I, [2016-04-06T17:21:59.682343 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:21:59.694343 #5136] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:21:59.701344 #5136] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:21:59.702344 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (18.0ms)
+I, [2016-04-06T17:21:59.703344 #5136]  INFO -- : Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T17:21:59.845352 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:21:59 -0500
+I, [2016-04-06T17:21:59.846352 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:21:59.858353 #5136] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:21:59.864353 #5136] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:21:59.865353 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T17:21:59.867353 #5136]  INFO -- : Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T17:22:00.054364 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:22:00 -0500
+I, [2016-04-06T17:22:00.055364 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:22:00.067365 #5136] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:22:00.073365 #5136] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:22:00.073365 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T17:22:00.075365 #5136]  INFO -- : Completed 200 OK in 19ms (Views: 16.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T17:22:00.388383 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:22:00 -0500
+I, [2016-04-06T17:22:00.389383 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:22:00.400384 #5136] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:22:00.406384 #5136] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:22:00.406384 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-04-06T17:22:00.408384 #5136]  INFO -- : Completed 200 OK in 19ms (Views: 16.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T17:22:23.892727 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:22:23 -0500
+I, [2016-04-06T17:22:23.894728 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:22:23.912729 #5136] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:22:23.922729 #5136] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:22:23.923729 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (27.0ms)
+I, [2016-04-06T17:22:23.925729 #5136]  INFO -- : Completed 200 OK in 31ms (Views: 29.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T17:22:25.557823 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:22:25 -0500
+I, [2016-04-06T17:22:25.558823 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:22:25.575824 #5136] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:22:25.582824 #5136] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:22:25.582824 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (22.0ms)
+I, [2016-04-06T17:22:25.584824 #5136]  INFO -- : Completed 200 OK in 26ms (Views: 21.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T17:22:26.043850 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:22:26 -0500
+I, [2016-04-06T17:22:26.044851 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:22:26.055851 #5136] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:22:26.062852 #5136] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:22:26.062852 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T17:22:26.064852 #5136]  INFO -- : Completed 200 OK in 20ms (Views: 17.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T17:22:26.107854 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:22:26 -0500
+I, [2016-04-06T17:22:26.108854 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:22:26.121855 #5136] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:22:26.127855 #5136] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:22:26.127855 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T17:22:26.129855 #5136]  INFO -- : Completed 200 OK in 20ms (Views: 17.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T17:22:26.134856 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:22:26 -0500
+I, [2016-04-06T17:22:26.135856 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:22:26.146856 #5136] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:22:26.153857 #5136] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:22:26.153857 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T17:22:26.154857 #5136]  INFO -- : Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T17:22:26.541879 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:22:26 -0500
+I, [2016-04-06T17:22:26.542879 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:22:26.554880 #5136] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:22:26.566880 #5136] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:22:26.567880 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (23.0ms)
+I, [2016-04-06T17:22:26.568881 #5136]  INFO -- : Completed 200 OK in 26ms (Views: 25.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T17:22:26.621884 #5136]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:22:26 -0500
+I, [2016-04-06T17:22:26.622884 #5136]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:22:26.634884 #5136] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:22:26.641885 #5136] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:22:26.641885 #5136]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-04-06T17:22:26.643885 #5136]  INFO -- : Completed 200 OK in 20ms (Views: 17.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T17:24:05.619546 #7436]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-06 17:24:05 -0500
+I, [2016-04-06T17:24:05.642547 #7436]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:24:05.720552 #7436] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:24:05.729552 #7436] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:24:05.730552 #7436]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (63.0ms)
+I, [2016-04-06T17:24:05.732552 #7436]  INFO -- : Completed 200 OK in 90ms (Views: 73.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-06T17:28:50.317830 #6744]  INFO -- : Started GET "/voluntarios" for 127.0.0.1 at 2016-04-06 17:28:50 -0500
+I, [2016-04-06T17:28:50.341831 #6744]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-06T17:28:50.423836 #6744] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-06T17:28:50.432836 #6744] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-06T17:28:50.433836 #6744]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (66.0ms)
+I, [2016-04-06T17:28:50.435836 #6744]  INFO -- : Completed 200 OK in 94ms (Views: 76.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-06T17:28:57.716253 #6744]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 17:28:57 -0500
+I, [2016-04-06T17:28:57.718253 #6744]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T17:28:57.763256 #6744]  INFO -- :   Rendered voluntarios/_form.html.erb (21.0ms)
+I, [2016-04-06T17:28:57.763256 #6744]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (24.0ms)
+I, [2016-04-06T17:28:57.764256 #6744]  INFO -- : Completed 200 OK in 46ms (Views: 28.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-06T17:29:17.330375 #6744]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-06 17:29:17 -0500
+I, [2016-04-06T17:29:17.332375 #6744]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-06T17:29:17.358376 #6744]  INFO -- :   Rendered voluntarios/_form.html.erb (20.0ms)
+I, [2016-04-06T17:29:17.359376 #6744]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (24.0ms)
+I, [2016-04-06T17:29:17.360376 #6744]  INFO -- : Completed 200 OK in 28ms (Views: 27.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-07T17:16:26.486290 #3016]  INFO -- : Started GET "/voluntarios/" for 127.0.0.1 at 2016-04-07 17:16:26 -0500
+I, [2016-04-07T17:16:26.533292 #3016]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-04-07T17:16:26.613297 #3016] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-04-07T17:16:26.623298 #3016] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-04-07T17:16:26.623298 #3016]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (66.0ms)
+I, [2016-04-07T17:16:26.626298 #3016]  INFO -- : Completed 200 OK in 93ms (Views: 74.0ms | ActiveRecord: 2.0ms)
+I, [2016-04-07T17:16:47.846511 #3016]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-07 17:16:47 -0500
+I, [2016-04-07T17:16:47.847511 #3016]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-07T17:16:47.932516 #3016]  INFO -- :   Rendered voluntarios/_form.html.erb (42.0ms)
+I, [2016-04-07T17:16:47.932516 #3016]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (62.0ms)
+I, [2016-04-07T17:16:47.933516 #3016]  INFO -- : Completed 200 OK in 86ms (Views: 66.0ms | ActiveRecord: 1.0ms)
+I, [2016-04-07T17:16:55.197932 #3016]  INFO -- : Started GET "/voluntarios/new" for 127.0.0.1 at 2016-04-07 17:16:55 -0500
+I, [2016-04-07T17:16:55.198932 #3016]  INFO -- : Processing by VoluntariosController#new as HTML
+I, [2016-04-07T17:16:55.224933 #3016]  INFO -- :   Rendered voluntarios/_form.html.erb (20.0ms)
+I, [2016-04-07T17:16:55.224933 #3016]  INFO -- :   Rendered voluntarios/new.html.erb within layouts/application (23.0ms)
+I, [2016-04-07T17:16:55.225933 #3016]  INFO -- : Completed 200 OK in 27ms (Views: 26.0ms | ActiveRecord: 0.0ms)
+I, [2016-04-18T17:44:06.896084 #5736]  INFO -- : Started GET "/" for 127.0.0.1 at 2016-04-18 17:44:06 -0500
+I, [2016-04-18T17:44:06.939086 #5736]  INFO -- : Processing by BienvenidaController#index as HTML
+I, [2016-04-18T17:44:06.964088 #5736]  INFO -- :   Rendered bienvenida/index.html.erb within layouts/application (3.0ms)
+I, [2016-04-18T17:44:06.966088 #5736]  INFO -- : Completed 200 OK in 27ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+I, [2016-06-16T15:40:53.710831 #7560]  INFO -- : Started GET "/voluntarios" for ::1 at 2016-06-16 15:40:53 -0500
+I, [2016-06-16T15:40:53.719832 #7560]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-06-16T15:40:53.772835 #7560] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-06-16T15:40:53.777835 #7560] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-06-16T15:40:53.778835 #7560]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (40.0ms)
+I, [2016-06-16T15:40:53.779835 #7560]  INFO -- : Completed 200 OK in 59ms (Views: 47.0ms | ActiveRecord: 0.0ms)
+I, [2016-06-16T15:41:03.061366 #7560]  INFO -- : Started GET "/voluntarios" for ::1 at 2016-06-16 15:41:03 -0500
+I, [2016-06-16T15:41:03.062366 #7560]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-06-16T15:41:03.074367 #7560] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-06-16T15:41:03.081367 #7560] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-06-16T15:41:03.081367 #7560]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-06-16T15:41:03.082367 #7560]  INFO -- : Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 1.0ms)
+I, [2016-06-16T15:41:03.345382 #7560]  INFO -- : Started GET "/voluntarios" for ::1 at 2016-06-16 15:41:03 -0500
+I, [2016-06-16T15:41:03.345382 #7560]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-06-16T15:41:03.355383 #7560] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-06-16T15:41:03.359383 #7560] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-06-16T15:41:03.360383 #7560]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (14.0ms)
+I, [2016-06-16T15:41:03.360383 #7560]  INFO -- : Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms)
+I, [2016-06-16T15:41:03.656400 #7560]  INFO -- : Started GET "/voluntarios" for ::1 at 2016-06-16 15:41:03 -0500
+I, [2016-06-16T15:41:03.657400 #7560]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-06-16T15:41:03.667401 #7560] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-06-16T15:41:03.675401 #7560] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-06-16T15:41:03.675401 #7560]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-06-16T15:41:03.676401 #7560]  INFO -- : Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 1.0ms)
+I, [2016-06-16T15:41:03.885413 #7560]  INFO -- : Started GET "/voluntarios" for ::1 at 2016-06-16 15:41:03 -0500
+I, [2016-06-16T15:41:03.886413 #7560]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-06-16T15:41:03.894414 #7560] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-06-16T15:41:03.924415 #7560] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-06-16T15:41:03.925415 #7560]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (38.0ms)
+I, [2016-06-16T15:41:03.927416 #7560]  INFO -- : Completed 200 OK in 41ms (Views: 40.0ms | ActiveRecord: 0.0ms)
+I, [2016-06-16T15:41:04.487448 #7560]  INFO -- : Started GET "/voluntarios" for ::1 at 2016-06-16 15:41:04 -0500
+I, [2016-06-16T15:41:04.488448 #7560]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-06-16T15:41:04.500448 #7560] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-06-16T15:41:04.505449 #7560] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-06-16T15:41:04.505449 #7560]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-06-16T15:41:04.506449 #7560]  INFO -- : Completed 200 OK in 18ms (Views: 15.0ms | ActiveRecord: 1.0ms)
+I, [2016-06-16T15:41:05.139485 #7560]  INFO -- : Started GET "/voluntarios" for ::1 at 2016-06-16 15:41:05 -0500
+I, [2016-06-16T15:41:05.140485 #7560]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-06-16T15:41:05.157486 #7560] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-06-16T15:41:05.162486 #7560] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-06-16T15:41:05.162486 #7560]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (20.0ms)
+I, [2016-06-16T15:41:05.163486 #7560]  INFO -- : Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+I, [2016-06-16T15:41:05.652514 #7560]  INFO -- : Started GET "/voluntarios" for ::1 at 2016-06-16 15:41:05 -0500
+I, [2016-06-16T15:41:05.654514 #7560]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-06-16T15:41:05.670515 #7560] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-06-16T15:41:05.674515 #7560] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-06-16T15:41:05.674515 #7560]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (17.0ms)
+I, [2016-06-16T15:41:05.675516 #7560]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2016-06-16T15:41:05.908529 #7560]  INFO -- : Started GET "/voluntarios" for ::1 at 2016-06-16 15:41:05 -0500
+I, [2016-06-16T15:41:05.909529 #7560]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-06-16T15:41:05.926530 #7560] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-06-16T15:41:05.935530 #7560] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-06-16T15:41:05.939531 #7560]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (29.0ms)
+I, [2016-06-16T15:41:05.940531 #7560]  INFO -- : Completed 200 OK in 31ms (Views: 30.0ms | ActiveRecord: 0.0ms)
+I, [2016-06-16T15:41:06.220547 #7560]  INFO -- : Started GET "/voluntarios" for ::1 at 2016-06-16 15:41:06 -0500
+I, [2016-06-16T15:41:06.221547 #7560]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-06-16T15:41:06.232547 #7560] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-06-16T15:41:06.238548 #7560] DEBUG -- :   [1m[35mVoluntario Load (1.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-06-16T15:41:06.239548 #7560]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (16.0ms)
+I, [2016-06-16T15:41:06.240548 #7560]  INFO -- : Completed 200 OK in 19ms (Views: 16.0ms | ActiveRecord: 2.0ms)
+I, [2016-06-16T15:41:06.447560 #7560]  INFO -- : Started GET "/voluntarios" for ::1 at 2016-06-16 15:41:06 -0500
+I, [2016-06-16T15:41:06.449560 #7560]  INFO -- : Processing by VoluntariosController#index as HTML
+D, [2016-06-16T15:41:06.474561 #7560] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "voluntarios"[0m
+D, [2016-06-16T15:41:06.479562 #7560] DEBUG -- :   [1m[35mVoluntario Load (0.0ms)[0m  SELECT  "voluntarios".* FROM "voluntarios" LIMIT 10 OFFSET 0
+I, [2016-06-16T15:41:06.479562 #7560]  INFO -- :   Rendered voluntarios/index.html.erb within layouts/application (20.0ms)
+I, [2016-06-16T15:41:06.482562 #7560]  INFO -- : Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.0ms)

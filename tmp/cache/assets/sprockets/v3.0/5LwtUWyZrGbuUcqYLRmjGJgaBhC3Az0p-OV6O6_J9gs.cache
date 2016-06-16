@@ -1,0 +1,11 @@
+I"™(function() {
+  jQuery(function() {});
+
+  $('#vonluntario_estado').autocomplete;
+
+  ({
+    source: ['Oaxaca', 'colima', 'chiapas']
+  });
+
+}).call(this);
+:ET

@@ -1,0 +1,11 @@
+I"¢(function() {
+  jQuery(function() {});
+
+  $('#voluntario_estado'.autocomplete);
+
+  ({
+    source: ['Oaxaca', 'Puebla', 'chiapas', 'colina']
+  });
+
+}).call(this);
+:ET

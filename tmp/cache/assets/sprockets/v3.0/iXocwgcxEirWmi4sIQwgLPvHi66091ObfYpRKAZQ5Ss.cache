@@ -1,0 +1,9 @@
+I"ú(function() {
+  jQuery(function($) {
+    return $('#voluntario_estado').autocomplete({
+      source: ['Aguascalientes', 'Baja California', 'Baja California Sur', 'Campeche', 'Chiapas', 'Chihuahua', 'Coahuila', 'Colima']
+    });
+  });
+
+}).call(this);
+:ET

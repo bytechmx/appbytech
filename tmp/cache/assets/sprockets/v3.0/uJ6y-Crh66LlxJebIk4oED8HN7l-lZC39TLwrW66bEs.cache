@@ -1,0 +1,9 @@
+I"À(function() {
+  jQuery(function($) {
+    return $('#voluntario_estado').autocomplete({
+      source: ['Aguascalientes', 'Baja California', 'Baja California Sur']
+    });
+  });
+
+}).call(this);
+:ET
