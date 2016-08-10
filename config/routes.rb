@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :bitacoras
   resources :voluntarios
   resources :registros
   resources :registers
