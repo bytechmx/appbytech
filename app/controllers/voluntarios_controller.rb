@@ -1,6 +1,6 @@
 class VoluntariosController < ApplicationController
   before_action :set_voluntario, only: [:show, :edit, :update, :destroy]
-http_basic_authenticate_with :name => "admin", :password => "trinitaria"
+
   # GET /voluntarios
   # GET /voluntarios.json
   def index
@@ -32,6 +32,7 @@ http_basic_authenticate_with :name => "admin", :password => "trinitaria"
 
     respond_to do |format|
       if @voluntario.save
+        UserMailer.registration_confirmation(@voluntario).deliver
         format.html { redirect_to @voluntario, notice: 'Voluntario was successfully created.' }
         format.json { render :show, status: :created, location: @voluntario }
       else
@@ -73,6 +74,6 @@ http_basic_authenticate_with :name => "admin", :password => "trinitaria"
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def voluntario_params
-      params.require(:voluntario).permit(:contacto, :fecha_solicitud, :fecha_autorizacion, :numero_registro, :nombre, :apellido, :estado, :municipio, :localidad, :colonia, :correo_electronico, :telefono, :status, :attachment, :comentarios, :validacionincentivos, :fecha_registro, :programa, :aportacion_cmt, :aportacion_beneficiario)
+      params.require(:voluntario).permit(:contacto, :fecha_solicitud, :fecha_autorizacion, :numero_registro, :nombre, :apellido, :estado, :municipio, :localidad, :colonia, :correo_electronico, :telefono, :status, :attachment, :comentarios, :validacionincentivos, :fecha_registro, :programa, :aportacion_cmt, :aportacion_beneficiario, :asesor)
     end
 end

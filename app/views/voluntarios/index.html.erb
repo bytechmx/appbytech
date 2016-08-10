@@ -1,10 +1,10 @@
  
-</h4>
 
 <%= search_form_for(@search, :html => {class: "", role: "form"}) do |f| %>
 
   <div class="container">
-   <h4><p id="notice"><%= notice %></p>
+   <h4><p id="notice"><%= notice %></p></h4>
+
   <h2>Buscar Beneficiario</h2>
  <div class="row">
 <div class="col-lg-3">
@@ -79,7 +79,7 @@
  
  <div class="form-group">
   
-      <%= f.label :status_cont, "Status" %>
+      <%= f.label :status_cont, "Estatus" %>
     
     <%= f.select :status_cont, [["Inactivo", "Inactivo"], ["Aprobado", "Aprobado"]], { :prompt => "Elegir" }, { class: "form-control" } %>
     </div>
@@ -106,7 +106,12 @@
   </div>
 
 </div>
-
+<div class="col-lg-3">
+<div class="form-group">
+<%= f.label :colonia_cont, "Institución" %>
+<%= f.text_field :colonia_cont, class: "form-control", placeholder: "Institución", autofocus: true %>
+</div>
+</div>
   </div>
 <div class="row">
   <div class="form-group">
@@ -147,7 +152,6 @@
     <th><%= sort_link(@search, :fecha_Registro, "Fecha de registro") %></th>
     <th><%= sort_link(@search, :fecha_solicitud, "Fecha de solicitud") %></th>
     <th><%= sort_link(@search, :fecha_autorizacion, "Fecha de autorización") %></th>
-    
     <th><%= sort_link(@search, :correo_electronico, "Email") %></th> 
     <th><%= sort_link(@search, :telefono, "Teléfono") %></th>
     <th><%= sort_link(@search, :colonia, "Institución") %></th>
@@ -171,28 +175,28 @@
       <tr>
         <td><%= voluntario.contacto %></td>
     
-        <td><%= voluntario.nombre %></td>
-        <td><%= voluntario.apellido %></td>
+        <td class="capitalize"><%= voluntario.nombre %></td>
+        <td class="capitalize"><%= voluntario.apellido %></td>
          <td><%= voluntario.fecha_registro %></td>
         <td><%= voluntario.fecha_solicitud %></td>
         <td><%= voluntario.fecha_autorizacion %></td>       
         <td><%= voluntario.correo_electronico %></td>
         <td><%= voluntario.telefono %></td>
-        <td><%= voluntario.colonia %></td>
+        <td  class="capitalize"><%= voluntario.colonia %></td>
         <td><%= voluntario.programa %></td>
         <td><%= voluntario.aportacion_cmt %></td>
         <td><%= voluntario.aportacion_beneficiario %></td>
         <td><%= voluntario.validacionincentivos %></td>
         <td><%= voluntario.estado %></td>
         <td><%= voluntario.municipio %></td>
-        <td><%= voluntario.localidad %></td>
+        <td class="capitalize"><%= voluntario.localidad %></td>
        
         
         <td><%= voluntario.status %></td>
-        <td><%= link_to "", voluntario.attachment_url, class:" glyphicon glyphicon-cloud-download" if voluntario.attachment? %></td>
+        <td><%= link_to "", voluntario.attachment_url, class:" glyphicon glyphicon-file", :target => "_blank" if voluntario.attachment? %></td>
         
-        <td><%= link_to '', voluntario, class:"glyphicon glyphicon-eye-open" %></td>
-        <td><%= link_to  edit_voluntario_path(voluntario), class:"glyphicon glyphicon-pencil" do  %>
+        <td><%= link_to '', voluntario, class:"glyphicon glyphicon-search" %></td>
+        <td><%= link_to  edit_voluntario_path(voluntario), class:"glyphicon glyphicon-edit" do  %>
         
         
         <% end %>
